@@ -14,9 +14,9 @@
         android:padding="@dimen/_20sdp"
         android:orientation="vertical">
         <ImageView
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_90sdp"
-            android:background="@color/black"/>
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:background="@drawable/logo"/>
         <TextView
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_width="match_parent"

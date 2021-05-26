@@ -1,14 +1,18 @@
 package com.inc.vr.corp.app.perpusskadala.login
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.inc.vr.corp.app.perpusskadala.BuildConfig
-import com.inc.vr.corp.app.perpusskadala.R
-import com.inc.vr.corp.app.perpusskadala.RegisterActivity
+import android.text.Editable
+import android.widget.Toast
+import com.inc.vr.corp.app.perpusskadala.*
+
 import com.inc.vr.corp.app.perpusskadala.api.RestApiService
 import com.inc.vr.corp.app.perpusskadala.model.UserInfo
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.toast
 import timber.log.Timber
 
 class LoginActivity : AppCompatActivity() {
@@ -19,34 +23,50 @@ class LoginActivity : AppCompatActivity() {
             Timber.plant(Timber.DebugTree())
         }
         b_masuk.setOnClickListener{
-            //addDummyUser()
+            if (isNetworkAvailbale()){
+                loginUser(i_email.text,i_pass.text)
+            }else{
+                toast("Tidak ada koneksi internet")
+            }
         }
-
+        val sharedPreference:SharedPreference= SharedPreference(this)
         b_daftar.setOnClickListener {
-            val intent = Intent(this,RegisterActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
     }
-    fun addDummyUser() {
+    fun  isNetworkAvailbale():Boolean{
+        val conManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val internetInfo =conManager.activeNetworkInfo
+        return internetInfo!=null && internetInfo.isConnected
+    }
+    fun loginUser(email: Editable?, password: Editable?) {
         val apiService = RestApiService()
          val userInfo = UserInfo(
              id = null,
-            name = "Alex",
-            email = "alex2n@gmail.com",
-            role = "user",
-            password = "alex12345"
+            name = null,
+            email = email?.toString(),
+            role = null,
+            password = password?.toString()
         )
 
-        apiService.addUser(userInfo) {
+        apiService.loginUser(userInfo) {
             Timber.d("info "+userInfo.toString())
             if (it?.email != null) {
                 // it = newly added user parsed as response
                 // it?.id = newly added user ID
                 Timber.d("inpoooxx"+it.toString())
                 Timber.d("inpooo"+it?.email)
+                val sharedPreference:SharedPreference= SharedPreference(this)
+                it?.name?.let { it1 -> sharedPreference.save("name", it1) }
+                sharedPreference.save("email",it?.email)
+                it?.id?.let { it1 -> sharedPreference.save("id", it1) }
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             } else {
                 Timber.d("inpooo"+it?.email)
                 Timber.d("Error registering new user")
+                toast("Error! Silahkan Coba lagi")
             }
         }
     }
