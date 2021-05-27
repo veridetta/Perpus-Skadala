@@ -14,6 +14,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import androidx.appcompat.app.AlertDialog
 import com.inc.vr.corp.app.perpusskadala.api.RestApiService
 import com.inc.vr.corp.app.perpusskadala.login.LoginActivity
 import com.inc.vr.corp.app.perpusskadala.model.UserInfo
@@ -46,6 +47,12 @@ class RegisterActivity : AppCompatActivity() {
             role = "user",
             password = password?.toString()
         )
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@RegisterActivity)
+        alertDialog.setTitle("Processing...")
+        alertDialog.setMessage("Data sedang diproses")
+        val alert: AlertDialog = alertDialog.create()
+        alert.setCanceledOnTouchOutside(false)
+        alert.show()
         apiService.addUser(userInfo) {
             Timber.d("info "+userInfo.toString())
             if (it?.email != null) {
@@ -61,6 +68,7 @@ class RegisterActivity : AppCompatActivity() {
                 Timber.d("Error registering new user")
                 toast("Error! Silahkan Coba lagi")
             }
+            alert.dismiss()
         }
     }
     fun EditText.filterMinLength(min: Int){

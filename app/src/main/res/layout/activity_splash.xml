@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="@dimen/_140sdp"
             android:layout_height="@dimen/_140sdp"
-            android:background="@color/black"/>
+            android:background="@drawable/logo"/>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

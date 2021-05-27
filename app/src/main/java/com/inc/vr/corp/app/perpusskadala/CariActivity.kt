@@ -1,67 +1,48 @@
 package com.inc.vr.corp.app.perpusskadala
 
-import android.content.Intent
-import android.os.Bundle
-import android.widget.SearchView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.inc.vr.corp.app.perpusskadala.adapter.BukuAdapter
 import com.inc.vr.corp.app.perpusskadala.api.BukuApi
 import com.inc.vr.corp.app.perpusskadala.api.RestApiService
 import com.inc.vr.corp.app.perpusskadala.api.ServiceBuilder
 import com.inc.vr.corp.app.perpusskadala.model.BukuInfo
+import kotlinx.android.synthetic.main.activity_cari.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.small_content.*
+import kotlinx.android.synthetic.main.activity_main.rc_home
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
 
-class MainActivity : AppCompatActivity() {
+class CariActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_cari)
         if(BuildConfig.DEBUG){
             Timber.plant(Timber.DebugTree())
         }
-        val ss = getIntent().getStringExtra("category_id").toString()
-        getBuku(ss,"category_id")
+        val ss = getIntent().getStringExtra("title").toString()
+        getBuku(ss,"title")
         Timber.d("isi "+ss);
-        cari_input.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                return false
-            }
-
-            override fun onQueryTextSubmit(query: String): Boolean {
-                val cari = cari_input.query.toString()
-                val intent = Intent(getApplicationContext() , CariActivity::class.java)
-                intent.putExtra("title", cari)
-                startActivity(intent)
-                return false
-            }
-
-        })
-
+        kategori_text.text="Menampilkan hasil cari '"+ss+"'"
     }
-
-
     fun getBuku(title: String, author: String) {
         val apiService= RestApiService()
         val bukuInfo = BukuInfo(
-                id = null,
-                title = title,
-                release_year = null,
-                updated_at = null,
-                cover_url = null,
-                cover_id = null,
-                author = author,
-                category_id = null,
-                created_at = null
+            id = null,
+            title = title,
+            release_year = null,
+            updated_at = null,
+            cover_url = null,
+            cover_id = null,
+            author = author,
+            category_id = null,
+            created_at = null
         )
-        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@CariActivity)
         alertDialog.setTitle("Processing...")
         alertDialog.setMessage("Data sedang diproses")
         val alert: AlertDialog = alertDialog.create()
@@ -81,11 +62,12 @@ class MainActivity : AppCompatActivity() {
                         Timber.d(addedUser.toString())
                         val heroesAdapter = BukuAdapter(addedUser)
                         rc_home.apply {
-                            layoutManager = GridLayoutManager(this@MainActivity,2)
+                            layoutManager = GridLayoutManager(this@CariActivity,2)
                             adapter = heroesAdapter
                         }
                     }
                     alert.dismiss()
+
                 }
             }
         )
@@ -100,6 +82,3 @@ class MainActivity : AppCompatActivity() {
          */
     }
 }
-
-
-

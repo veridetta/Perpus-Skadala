@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.inc.vr.corp.app.perpusskadala" >
+    package="com.inc.vr.corp.app.perpusskadala">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.PerpusSkadala"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning" >
-        <activity android:name=".SplashActivity" >
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".CariActivity" />
+        <activity android:name=".BookingActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,10 +34,8 @@
             android:required="false" />
 
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".login.LoginActivity" >
-        </activity>
-        <activity android:name=".MainActivity" >
-        </activity>
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

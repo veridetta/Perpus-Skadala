@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.inc.vr.corp.app.perpusskadala.*
 
 import com.inc.vr.corp.app.perpusskadala.api.RestApiService
@@ -49,7 +50,12 @@ class LoginActivity : AppCompatActivity() {
             role = null,
             password = password?.toString()
         )
-
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@LoginActivity)
+        alertDialog.setTitle("Processing...")
+        alertDialog.setMessage("Data sedang diproses")
+        val alert: AlertDialog = alertDialog.create()
+        alert.setCanceledOnTouchOutside(false)
+        alert.show()
         apiService.loginUser(userInfo) {
             Timber.d("info "+userInfo.toString())
             if (it?.email != null) {
@@ -61,13 +67,14 @@ class LoginActivity : AppCompatActivity() {
                 it?.name?.let { it1 -> sharedPreference.save("name", it1) }
                 sharedPreference.save("email",it?.email)
                 it?.id?.let { it1 -> sharedPreference.save("id", it1) }
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, MenuActivity::class.java)
                 startActivity(intent)
             } else {
                 Timber.d("inpooo"+it?.email)
                 Timber.d("Error registering new user")
                 toast("Error! Silahkan Coba lagi")
             }
+            alert.dismiss()
         }
     }
 }

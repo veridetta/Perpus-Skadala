@@ -2,6 +2,7 @@ package com.inc.vr.corp.app.perpusskadala.api
 
 import com.inc.vr.corp.app.perpusskadala.adapter.BukuAdapter
 import com.inc.vr.corp.app.perpusskadala.model.BukuInfo
+import com.inc.vr.corp.app.perpusskadala.model.OrderInfo
 import com.inc.vr.corp.app.perpusskadala.model.UserInfo
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,6 +39,21 @@ class RestApiService {
                         onResult(addedUser)
                     }
                 }
+        )
+    }
+    fun orderBuku(userData: OrderInfo, onResult: (OrderInfo?) -> Unit){
+        val retrofit = ServiceBuilder.buildService(OrderApi::class.java)
+        retrofit.orderBuku(userData).enqueue(
+            object : Callback<OrderInfo> {
+                override fun onFailure(call: Call<OrderInfo>, t: Throwable) {
+                    onResult(null)
+                }
+
+                override fun onResponse(call: Call<OrderInfo>, response: Response<OrderInfo>) {
+                    val addedUser = response.body()
+                    onResult(addedUser)
+                }
+            }
         )
     }
     fun loadBuku(userData: BukuInfo, onResult: (List<BukuInfo>?) -> Unit){
