@@ -48,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
             name = null,
             email = email?.toString(),
             role = null,
+                 kelas = null,
             password = password?.toString()
         )
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@LoginActivity)
@@ -66,6 +67,7 @@ class LoginActivity : AppCompatActivity() {
                 val sharedPreference:SharedPreference= SharedPreference(this)
                 it?.name?.let { it1 -> sharedPreference.save("name", it1) }
                 sharedPreference.save("email",it?.email)
+                it?.kelas?.let { it1 -> sharedPreference.save("kelas", it1) }
                 it?.id?.let { it1 -> sharedPreference.save("id", it1) }
                 val intent = Intent(this, MenuActivity::class.java)
                 startActivity(intent)

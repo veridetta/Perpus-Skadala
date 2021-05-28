@@ -71,7 +71,7 @@
                                         android:layout_gravity="center"
                                         android:gravity="center"
                                         android:layout_height="wrap_content"
-                                        android:background="@color/white"
+                                        android:background="@color/grey_200"
                                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                                         <SearchView
                                             android:id="@+id/cari_input"

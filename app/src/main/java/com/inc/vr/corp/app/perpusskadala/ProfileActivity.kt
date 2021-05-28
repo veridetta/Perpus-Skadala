@@ -29,7 +29,7 @@ class ProfileActivity : AppCompatActivity() {
         val nama = sharedPreference.getValueString("name")
         val kelas = sharedPreference.getValueString("kelas")
         i_nama.text=nama.toString()
-        i_kelas.text="Siswa kelas X"
+        i_kelas.text=kelas.toString()
         i_pp.text=nama.toString().substring(0,1)
         getRiwayat(id_user)
         b_logout.setOnClickListener{

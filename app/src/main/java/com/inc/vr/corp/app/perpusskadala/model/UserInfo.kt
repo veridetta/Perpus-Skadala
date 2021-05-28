@@ -7,5 +7,6 @@ data class UserInfo (
     @SerializedName("name") val name: String?,
     @SerializedName("email") val email: String?,
     @SerializedName("role") val role: String?,
+    @SerializedName("kelas") val kelas: String?,
     @SerializedName("password") val password: String?,
 )

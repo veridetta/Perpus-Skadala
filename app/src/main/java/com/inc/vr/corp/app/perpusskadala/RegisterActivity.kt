@@ -35,15 +35,16 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         b_daftar.setOnClickListener {
-            regUser(i_name.text,i_email.text,i_pass.text)
+            regUser(i_name.text,i_email.text,i_pass.text,i_kelas.text)
         }
     }
-    fun regUser(name: Editable?, email: Editable?, password: Editable?) {
+    fun regUser(name: Editable?, email: Editable?, password: Editable?,kelas: Editable?) {
         val apiService = RestApiService()
         val userInfo = UserInfo(
             id = null,
             name = name?.toString(),
             email = email?.toString(),
+                kelas = email?.toString(),
             role = "user",
             password = password?.toString()
         )
