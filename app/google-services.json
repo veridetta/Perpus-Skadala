@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "882892520358",
+    "project_id": "perpus-skadala",
+    "storage_bucket": "perpus-skadala.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882892520358:android:c37a403596725d55126d67",
+        "android_client_info": {
+          "package_name": "com.inc.vr.corp.app.perpusskadala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882892520358-cn6hum2nn5oh939gcuem68hqdnjul8cs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inc.vr.corp.app.perpusskadala",
+            "certificate_hash": "16b16493fcdcd7f7e87bbbb1aad9e77cd4fc50e0"
+          }
+        },
+        {
+          "client_id": "882892520358-1eodt79338vg0brnq7dmgh002hrppah9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABNh-zqMeE5to5Sy1k2sZLQtIB_XVZBog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882892520358-1eodt79338vg0brnq7dmgh002hrppah9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

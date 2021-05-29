@@ -72,6 +72,8 @@
                                         android:gravity="center"
                                         android:layout_height="wrap_content"
                                         android:background="@color/grey_200"
+                                        app:hintTextColor="@color/purple_500"
+                                        android:textColorHint="@color/purple_500"
                                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                                         <SearchView
                                             android:id="@+id/cari_input"
@@ -79,6 +81,8 @@
                                             android:layout_height="wrap_content"
                                             android:iconifiedByDefault="false"
                                             android:inputType="text"
+                                            android:textColor="@color/purple_500"
+                                            android:textColorHint="@color/purple_500"
                                             android:maxLines="1" />
                                     </com.google.android.material.textfield.TextInputLayout>
                                 </LinearLayout>

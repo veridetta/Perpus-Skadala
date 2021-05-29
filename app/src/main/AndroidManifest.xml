@@ -35,9 +35,9 @@
             android:required="false" />
 
         <activity android:name=".RegisterActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".login.LoginActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".MainActivity" />
     </application>
 
