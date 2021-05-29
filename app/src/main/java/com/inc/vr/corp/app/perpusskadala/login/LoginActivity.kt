@@ -51,7 +51,8 @@ class LoginActivity : AppCompatActivity() {
             email = email?.toString(),
             role = null,
                  kelas = null,
-            password = password?.toString()
+            password = password?.toString(),
+             token = null
         )
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@LoginActivity)
         alertDialog.setTitle("Processing...")

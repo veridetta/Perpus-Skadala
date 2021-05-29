@@ -46,7 +46,8 @@ class RegisterActivity : AppCompatActivity() {
             email = email?.toString(),
                 kelas = email?.toString(),
             role = "user",
-            password = password?.toString()
+            password = password?.toString(),
+            token = null
         )
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@RegisterActivity)
         alertDialog.setTitle("Processing...")
