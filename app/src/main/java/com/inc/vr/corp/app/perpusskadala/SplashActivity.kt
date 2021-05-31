@@ -53,11 +53,18 @@ class SplashActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                 }else{
-                    val koneksi = isNetworkAvailbale()
-                    val user_id = sharedPreference.getValueInt("id")
-                    if(koneksi){
-                        saveToken(user_id, token.toString(),user_id.toString())
+                    if (sharedPreference.getValueString("name")!=null) {
+
+                    }else{
+                        val intent = Intent(this,LoginActivity::class.java)
+                        startActivity(intent)
+                        val koneksi = isNetworkAvailbale()
+                        val user_id = sharedPreference.getValueInt("id")
+                        if(koneksi){
+                            saveToken(user_id, token.toString(),user_id.toString())
+                        }
                     }
+
                 }
                 // val msg = getString(R.string.msg_token_fmt, token)
                 Timber.d("Tokennya "+token)
