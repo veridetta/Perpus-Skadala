@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CariActivity">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -69,8 +69,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:padding="@dimen/_12sdp"
-                                        android:inputType="textCapSentences"
-                                        android:text="Menampilkan hasil cari 'Sport'"
+                                        android:minLines="2"
+                                        android:text="Menampilkan hasil cari 'Sport' "
                                         android:textSize="@dimen/_18sdp" />
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:layout_width="match_parent"
@@ -101,5 +101,30 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
-    </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_9sdp"
+            android:paddingRight="@dimen/_14sdp"
+            android:gravity="right">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_4sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:cardMaxElevation="@dimen/_4sdp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_9sdp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kembali"
+                        android:textSize="@dimen/_12sdp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </RelativeLayout>
 </FrameLayout>

@@ -90,6 +90,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:text=" PELAJARAN"
                                                 android:textStyle="bold"
+                                                android:textColor="@color/purple_500"
                                                 android:textSize="@dimen/_20sdp"
                                                 android:layout_gravity="center"
                                                 android:gravity="center"/>
@@ -159,6 +160,7 @@
                                                 android:text=" NOVEL"
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/_20sdp"
+                                                android:textColor="@color/purple_500"
                                                 android:layout_gravity="center"
                                                 android:gravity="center"/>
                                         </LinearLayout>
@@ -212,6 +214,7 @@
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/_20sdp"
                                                 android:layout_gravity="center"
+                                                android:textColor="@color/purple_500"
                                                 android:gravity="center"/>
                                         </LinearLayout>
 

@@ -44,7 +44,7 @@ class RegisterActivity : AppCompatActivity() {
             id = null,
             name = name?.toString(),
             email = email?.toString(),
-                kelas = email?.toString(),
+                kelas = kelas?.toString(),
             role = "user",
             password = password?.toString(),
             token = null

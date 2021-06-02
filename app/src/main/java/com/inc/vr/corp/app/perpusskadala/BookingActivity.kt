@@ -59,6 +59,10 @@ class BookingActivity : AppCompatActivity() {
         ly_timepiker.setOnClickListener {
             showTimePicker()
         }
+        btn_back.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
         b_booking.setOnClickListener{
             var tgl_oke = false
             var jam_oke = false

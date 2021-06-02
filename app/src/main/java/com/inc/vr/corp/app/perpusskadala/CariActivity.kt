@@ -1,5 +1,6 @@
 package com.inc.vr.corp.app.perpusskadala
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -9,7 +10,9 @@ import com.inc.vr.corp.app.perpusskadala.api.BukuApi
 import com.inc.vr.corp.app.perpusskadala.api.RestApiService
 import com.inc.vr.corp.app.perpusskadala.api.ServiceBuilder
 import com.inc.vr.corp.app.perpusskadala.model.BukuInfo
+import kotlinx.android.synthetic.main.activity_booking.*
 import kotlinx.android.synthetic.main.activity_cari.*
+import kotlinx.android.synthetic.main.activity_cari.btn_back
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.rc_home
 import retrofit2.Call
@@ -28,6 +31,10 @@ class CariActivity : AppCompatActivity() {
         getBuku(ss,"title")
         Timber.d("isi "+ss);
         kategori_text.text="Menampilkan hasil cari '"+ss+"'"
+        btn_back.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
     }
     fun getBuku(title: String, author: String) {
         val apiService= RestApiService()

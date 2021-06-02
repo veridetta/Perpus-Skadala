@@ -54,15 +54,15 @@ class SplashActivity : AppCompatActivity() {
                     }
                 }else{
                     if (sharedPreference.getValueString("name")!=null) {
-
-                    }else{
-                        val intent = Intent(this,LoginActivity::class.java)
-                        startActivity(intent)
                         val koneksi = isNetworkAvailbale()
                         val user_id = sharedPreference.getValueInt("id")
                         if(koneksi){
                             saveToken(user_id, token.toString(),user_id.toString())
                         }
+                        Timber.d("nanma "+sharedPreference.getValueString("name"))
+                    }else{
+                        val intent = Intent(this,LoginActivity::class.java)
+                        startActivity(intent)
                     }
 
                 }

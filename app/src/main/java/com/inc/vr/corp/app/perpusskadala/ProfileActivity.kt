@@ -12,9 +12,11 @@ import com.inc.vr.corp.app.perpusskadala.api.RiwayatApi
 import com.inc.vr.corp.app.perpusskadala.api.ServiceBuilder
 import com.inc.vr.corp.app.perpusskadala.login.LoginActivity
 import com.inc.vr.corp.app.perpusskadala.model.OrderInfo
+import kotlinx.android.synthetic.main.activity_booking.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.rc_home
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.activity_profile.btn_back
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,6 +37,10 @@ class ProfileActivity : AppCompatActivity() {
         b_logout.setOnClickListener{
             sharedPreference.clearSharedPreference()
             val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        btn_back.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }
