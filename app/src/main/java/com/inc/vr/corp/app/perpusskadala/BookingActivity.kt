@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,12 @@ class BookingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Booking"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
         val tahun = getIntent().getStringExtra("tahun").toString()
         val kategori = getIntent().getStringExtra("kategori").toString()
         val judul = getIntent().getStringExtra("judul").toString()
@@ -54,27 +61,29 @@ class BookingActivity : AppCompatActivity() {
             .error(R.drawable.logo)
         Glide.with(this).load(cover_url).apply(options).into(bg_img)
         ly_datepiker.setOnClickListener {
-            showDatePicker()
+            showDatePicker(i_tgl)
+        }
+        ly_datereturn.setOnClickListener {
+            showDatePicker(i_return)
         }
         ly_timepiker.setOnClickListener {
             showTimePicker()
         }
-        btn_back.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        }
+
         b_booking.setOnClickListener{
             var tgl_oke = false
             var jam_oke = false
             val formatter = SimpleDateFormat("yyyy-MM-dd")
             val dateInString = i_tgl.text.toString()
             val date = formatter.format(formatter.parse(dateInString))
-
+            val formatter2 = SimpleDateFormat("yyyy-MM-dd")
+            val dateInString2 = i_return.text.toString()
+            val date2 = formatter2.format(formatter2.parse(dateInString2))
             tgl_oke = !i_tgl.text.equals("0000-00-00")
             jam_oke = !i_jam.text.equals("00:00")
             if(tgl_oke && jam_oke){
                 orderbuku(
-                    idx.toInt(), id_user, date, i_jam.text.toString()
+                    idx.toInt(), id_user, date, date2, i_jam.text.toString()
                 )
 
             }else{
@@ -84,15 +93,15 @@ class BookingActivity : AppCompatActivity() {
         }
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun showDatePicker() {
+    private fun showDatePicker(tgl:TextView) {
         val selectedDateInMillis = currentSelectedDate ?: System.currentTimeMillis()
 
         MaterialDatePicker.Builder.datePicker().setSelection(selectedDateInMillis).build().apply {
-            addOnPositiveButtonClickListener { dateInMillis -> onDateSelected(dateInMillis) }
+            addOnPositiveButtonClickListener { dateInMillis -> onDateSelected(dateInMillis,tgl) }
         }.show(supportFragmentManager, MaterialDatePicker::class.java.canonicalName)
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun onDateSelected(dateTimeStampInMillis: Long) {
+    private fun onDateSelected(dateTimeStampInMillis: Long, i_text:TextView) {
         currentSelectedDate = dateTimeStampInMillis
         val dateTime: LocalDateTime = LocalDateTime.ofInstant(
             Instant.ofEpochMilli(
@@ -100,7 +109,7 @@ class BookingActivity : AppCompatActivity() {
             ), ZoneId.systemDefault()
         )
         val dateAsFormattedText: String = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-        i_tgl.text = dateAsFormattedText
+        i_text.text = dateAsFormattedText
     }
     @RequiresApi(Build.VERSION_CODES.O)
     private fun showTimePicker() {
@@ -129,7 +138,7 @@ class BookingActivity : AppCompatActivity() {
         val internetInfo =conManager.activeNetworkInfo
         return internetInfo!=null && internetInfo.isConnected
     }
-    fun orderbuku(id_buku: Int?, id: Int?, tanggal: String, jam: String?) {
+    fun orderbuku(id_buku: Int?, id: Int?, tanggal: String,tanggal_pengembalian: String, jam: String?) {
         val apiService = RestApiService()
         val sum = "Submitted"
         val userInfo = OrderInfo(
@@ -137,6 +146,7 @@ class BookingActivity : AppCompatActivity() {
             book_id = id_buku,
             user_id = id,
             tanggal = tanggal,
+                tanggal_pengembalian = tanggal_pengembalian,
             jam = jam,
             success = null,
             status = sum
@@ -164,5 +174,9 @@ class BookingActivity : AppCompatActivity() {
             }
             alert.dismiss()
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

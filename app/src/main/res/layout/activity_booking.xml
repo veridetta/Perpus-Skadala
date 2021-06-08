@@ -138,6 +138,42 @@
                             android:text="00:00"/>
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ly_datereturn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:textColor="@color/grey_700"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="Tanggal Pengembalian"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/i_return"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textColor="@color/grey_700"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="0000-00-00"/>
+                    </LinearLayout>
+                </LinearLayout>
                 <TextView
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_width="match_parent"
@@ -156,33 +192,6 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/_9sdp"
-        android:paddingRight="@dimen/_14sdp"
-        android:gravity="right">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_4sdp"
-            app:cardElevation="@dimen/_2sdp"
-            app:cardMaxElevation="@dimen/_4sdp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/purple_500"
-                android:padding="@dimen/_9sdp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kembali"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

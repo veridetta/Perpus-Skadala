@@ -68,7 +68,7 @@
                                         <ImageView
                                             android:layout_width="@dimen/_100sdp"
                                             android:layout_height="@dimen/_100sdp"
-                                            android:background="@drawable/logo"/>
+                                            android:background="@drawable/book"/>
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
@@ -79,7 +79,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:text="BUKU"
-                                                android:textColor="@color/orange_400"
+                                                android:textColor="@color/grey_800"
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/_20sdp"
                                                 android:layout_gravity="center"
@@ -90,7 +90,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:text=" PELAJARAN"
                                                 android:textStyle="bold"
-                                                android:textColor="@color/purple_500"
+                                                android:textColor="@color/grey_800"
                                                 android:textSize="@dimen/_20sdp"
                                                 android:layout_gravity="center"
                                                 android:gravity="center"/>
@@ -137,7 +137,7 @@
                                         <ImageView
                                             android:layout_width="@dimen/_100sdp"
                                             android:layout_height="@dimen/_100sdp"
-                                            android:background="@drawable/logo"/>
+                                            android:background="@drawable/book"/>
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
@@ -148,7 +148,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:text="BUKU"
-                                                android:textColor="@color/blue_A400"
+                                                android:textColor="@color/grey_800"
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/_20sdp"
                                                 android:layout_gravity="center"
@@ -160,7 +160,7 @@
                                                 android:text=" NOVEL"
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/_20sdp"
-                                                android:textColor="@color/purple_500"
+                                                android:textColor="@color/grey_800"
                                                 android:layout_gravity="center"
                                                 android:gravity="center"/>
                                         </LinearLayout>
@@ -190,7 +190,7 @@
                                         <ImageView
                                             android:layout_width="@dimen/_100sdp"
                                             android:layout_height="@dimen/_100sdp"
-                                            android:background="@drawable/logo"/>
+                                            android:background="@drawable/book"/>
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
@@ -201,7 +201,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:text="BUKU"
-                                                android:textColor="@color/green_400"
+                                                android:textColor="@color/grey_800"
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/_20sdp"
                                                 android:layout_gravity="center"
@@ -214,7 +214,7 @@
                                                 android:textStyle="bold"
                                                 android:textSize="@dimen/_20sdp"
                                                 android:layout_gravity="center"
-                                                android:textColor="@color/purple_500"
+                                                android:textColor="@color/grey_800"
                                                 android:gravity="center"/>
                                         </LinearLayout>
 

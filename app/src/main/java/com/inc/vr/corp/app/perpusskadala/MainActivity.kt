@@ -26,6 +26,12 @@ class MainActivity : AppCompatActivity() {
         if(BuildConfig.DEBUG){
             Timber.plant(Timber.DebugTree())
         }
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Home"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
         val ss = getIntent().getStringExtra("category_id").toString()
         getBuku(ss,"category_id")
         Timber.d("isi "+ss);
@@ -98,6 +104,10 @@ class MainActivity : AppCompatActivity() {
         }
 
          */
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
 

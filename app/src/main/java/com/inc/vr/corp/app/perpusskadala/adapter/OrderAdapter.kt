@@ -48,7 +48,8 @@ class OrderHolder(view: View) : RecyclerView.ViewHolder(view) {
         tanggal.text=buku.tanggal
         jam.text=buku.jam
         status.text=buku.status
-        ket.text="Anda melakukan order buku dengan id buku adalah " + buku.book_id+" pada tanggal "+buku.tanggal+" dan pukul "+buku.jam
+        ket.text="Anda melakukan order buku dengan id buku adalah " + buku.book_id+" pada tanggal "+
+                buku.tanggal+" dan pukul "+buku.jam+". Dan berencana mengembalikan pada tanggal "+buku.tanggal_pengembalian
 
     }
 }

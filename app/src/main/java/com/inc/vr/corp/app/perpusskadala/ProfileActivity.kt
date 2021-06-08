@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_booking.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.rc_home
 import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.activity_profile.btn_back
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +29,12 @@ class ProfileActivity : AppCompatActivity() {
         val id_user = sharedPreference.getValueInt("id")
         val nama = sharedPreference.getValueString("name")
         val kelas = sharedPreference.getValueString("kelas")
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Profile"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
         i_nama.text=nama.toString()
         i_kelas.text=kelas.toString()
         i_pp.text=nama.toString().substring(0,1)
@@ -39,10 +44,7 @@ class ProfileActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-        btn_back.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        }
+
     }
     fun getRiwayat(id_user: Int) {
         val apiService= RestApiService()
@@ -51,6 +53,7 @@ class ProfileActivity : AppCompatActivity() {
             book_id = null,
             user_id = id_user,
             tanggal = null.toString(),
+                tanggal_pengembalian = "mm",
             jam = null,
             success = null,
             status = "null"
@@ -95,5 +98,12 @@ class ProfileActivity : AppCompatActivity() {
         }
 
          */
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        super.onBackPressed()
+        val intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
+        finish()
+        return true
     }
 }
