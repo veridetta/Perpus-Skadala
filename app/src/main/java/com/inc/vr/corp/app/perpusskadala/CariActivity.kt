@@ -48,7 +48,8 @@ class CariActivity : AppCompatActivity() {
             cover_id = null,
             author = author,
             category_id = null,
-            created_at = null
+            created_at = null,
+            book_code = null
         )
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@CariActivity)
         alertDialog.setTitle("Processing...")

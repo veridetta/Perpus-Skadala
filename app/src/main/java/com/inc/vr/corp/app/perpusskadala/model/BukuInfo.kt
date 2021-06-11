@@ -11,5 +11,6 @@ data class BukuInfo (
     @SerializedName("updated_at") val updated_at : String?,
     @SerializedName("cover_url") val cover_url : String?,
     @SerializedName("cover_id") val cover_id : String?,
+    @SerializedName("book_code") val book_code : String?,
     @SerializedName("category_id") val category_id : Int?
 )

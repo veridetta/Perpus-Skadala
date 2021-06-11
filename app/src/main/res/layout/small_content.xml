@@ -74,6 +74,28 @@
                     android:background="@color/blue_400"
                     app:cardCornerRadius="@dimen/_4sdp"
                     app:cardMaxElevation="@dimen/_6sdp"
+                    app:cardBackgroundColor="@color/green_400"
+                    app:cardElevation="@dimen/_3sdp"
+                    android:alpha="0.8">
+                    <TextView
+                        android:layout_margin="@dimen/_5sdp"
+                        android:id="@+id/book_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="Motor Sport"
+                        android:textSize="@dimen/_8sdp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@color/blue_400"
+                    app:cardCornerRadius="@dimen/_4sdp"
+                    app:cardMaxElevation="@dimen/_6sdp"
                     app:cardBackgroundColor="@color/red_400"
                     app:cardElevation="@dimen/_3sdp"
                     android:alpha="0.8">

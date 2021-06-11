@@ -42,6 +42,7 @@ class BukuHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val tauhtor = view.author
     private val tlogo = view.img_home
     private val card = view.card_home
+    private val code = view.book_code
 
     fun bindBuku(buku: BukuInfo) {
         var kat=""
@@ -58,6 +59,7 @@ class BukuHolder(view: View) : RecyclerView.ViewHolder(view) {
         ttahun.text= buku.release_year.toString()
         ttitle.text=buku.title
         tauhtor.text="Author : "+buku.author
+        code.text=buku.book_code
         val options: RequestOptions = RequestOptions()
             .centerCrop()
             .placeholder(R.drawable.logo)
